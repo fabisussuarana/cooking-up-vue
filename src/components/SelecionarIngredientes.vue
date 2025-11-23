@@ -8,7 +8,7 @@
 
         <ul class="categorias">
             <li v-for="categoria in categorias" :key="categoria.nome">
-                {{ categoria.nome }}
+                <CardCategoria :categoria="categoria" />
             </li>
         </ul>
 
@@ -20,8 +20,12 @@
 
 <script lang="ts">
     import { obterCategoria } from '@/http/index'
+    import CardCategoria from './CardCategoria.vue'
 
     export default {
+        components: {
+            CardCategoria
+        },
         // o bloco data é onde definimos variáveis
         data () {
             return {
