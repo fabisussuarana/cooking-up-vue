@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import ICategoria from '@/interface/ICategoria';
+import ICategoria from '@/interfaces/ICategoria';
 import { PropType } from 'vue';
 import IngredienteSelecionavel from './IngredienteSelecionavel.vue';
 

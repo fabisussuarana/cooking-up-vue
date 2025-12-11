@@ -20,21 +20,22 @@
             *Atenção: consideramos que você tem em casa sal, pimenta e água.
         </p>
 
-        <BotaoPrincipal texto="Buscar receitas!" />
+        <BotaoPrincipal texto="Buscar receitas!" @click="$emit('buscarReceitas')"/>
     </section>
 </template>
 
 <script lang="ts">
-    import { obterCategoria } from '@/http/index'
+    import { obterCategorias } from '@/http/index'
     import CardCategoria from './CardCategoria.vue'
     import BotaoPrincipal from './BotaoPrincipal.vue'
 
     export default {
+        name: 'SelecionarIngredientes',
         components: {
             CardCategoria,
             BotaoPrincipal
         },
-        emits: ['adicionarIngrediente', 'removerIngrediente'],
+        emits: ['adicionarIngrediente', 'removerIngrediente', 'buscarReceitas'],
         // o bloco data é onde definimos variáveis
         data () {
             return {
@@ -43,7 +44,7 @@
         },
         // o bloco created roda depois do data, nesse caso específico ele é assíncrono
         async created() {
-            this.categorias = await obterCategoria()
+            this.categorias = await obterCategorias()
         }
     }
 </script>
